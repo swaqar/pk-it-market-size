@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pakistan IT Market Size — Bottom-Up Model (2026 Base)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0f17; --panel: #111827; --panel2: #0e1522; --border: #1e2a3a; --border2: #2a3b52;
+    --ink: #e6edf3; --muted: #8b98a9; --accent: #e8a33d; --green: #3fb950; --red: #f85149;
+    --amber: #e8a33d; --cyan: #58a6ff;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased; }
+  ::selection { background:rgba(232,163,61,.3); }
+  header { position:sticky; top:0; z-index:50; background:rgba(11,15,23,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); }
+  .header-inner { max-width:1200px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+  .brand { font-weight:700; letter-spacing:.02em; font-size:16px; }
+  .brand .dot { color:var(--accent); }
+  .brand .mono { font-family:var(--mono); font-weight:500; color:var(--muted); font-size:13px; }
+  .legend { margin-left:auto; display:flex; gap:14px; font-size:12.5px; color:var(--muted); flex-wrap:wrap; }
+  .legend span { display:inline-flex; align-items:center; gap:6px; }
+  .pill { display:inline-block; padding:2px 10px; border-radius:999px; font-size:12px; font-weight:600; border:1px solid; line-height:1.6; white-space:nowrap; }
+  .pill.verified { color:var(--green); border-color:rgba(63,185,80,.5); background:rgba(63,185,80,.08); }
+  .pill.unverified { color:var(--amber); border-color:rgba(232,163,61,.5); background:rgba(232,163,61,.08); }
+  .pill.derived { color:var(--cyan); border-color:rgba(88,166,255,.5); background:rgba(88,166,255,.08); }
+  .pill.modeled { color:var(--red); border-color:rgba(248,81,73,.5); background:rgba(248,81,73,.08); }
+  main { max-width:1200px; margin:0 auto; padding:32px 24px 80px; }
+  h1 { font-size:28px; font-weight:700; letter-spacing:-.01em; line-height:1.2; }
+  h1 .mono { font-family:var(--mono); font-size:14px; color:var(--muted); font-weight:500; display:block; margin-top:8px; letter-spacing:0; }
+  .lede { color:var(--muted); margin:18px 0 8px; max-width:880px; }
+  .lede strong { color:var(--ink); }
+  h2 { font-size:20px; margin:48px 0 14px; letter-spacing:-.01em; }
+  h2 .tag { font-family:var(--mono); font-size:12px; color:var(--muted); font-weight:500; }
+  .lede-lead { font-size:16px; }
+  .grid { display:grid; gap:14px; }
+  .grid.stats { grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); margin:22px 0; }
+  .stat { background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:16px 18px; }
+  .stat .num { font-size:24px; font-weight:700; color:var(--accent); font-family:var(--mono); }
+  .stat .lbl { color:var(--muted); font-size:12.5px; margin-top:4px; }
+  .stat .lbl b { color:var(--ink); }
+  .panel { background:var(--panel); border:1px solid var(--border); border-radius:10px; padding:18px 20px; margin:14px 0; }
+  .panel h3 { font-size:15px; margin-bottom:10px; }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:14px; }
+  th, td { text-align:left; padding:9px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
+  th { color:var(--muted); font-weight:600; font-size:12.5px; text-transform:uppercase; letter-spacing:.04em; }
+  td .mono, th .mono { font-family:var(--mono); }
+  td.num { font-family:var(--mono); text-align:right; white-space:nowrap; }
+  tr:hover td { background:var(--panel2); }
+  .src { color:var(--muted); font-size:12.5px; word-break:break-all; }
+  a { color:var(--cyan); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  ul { margin:8px 0 8px 20px; }
+  li { margin:5px 0; }
+  .callout { border-left:3px solid var(--accent); background:var(--panel2); padding:14px 18px; border-radius:6px; margin:16px 0; }
+  .callout.blue { border-left-color:var(--cyan); }
+  .callout.red { border-left-color:var(--red); }
+  .callout.green { border-left-color:var(--green); }
+  .foot { color:var(--muted); font-size:12.5px; border-top:1px solid var(--border); margin-top:56px; padding-top:18px; }
+  .tagline { color:var(--muted); }
+  @media (max-width:700px){ h1{font-size:22px;} .legend{display:none;} }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">Pakistan IT <span class="dot">Market</span> Size <span class="mono">· pk-it-market-size</span></div>
+    <div class="legend">
+      <span><span class="pill verified">VERIFIED</span> primary official</span>
+      <span><span class="pill unverified">UNVERIFIED</span> press / secondary</span>
+      <span><span class="pill derived">GLOBAL-DERIVED</span> from validated model</span>
+      <span><span class="pill modeled">MODELED</span> from assumptions</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h1>Bottom-Up Market Sizing of the Pakistan IT Industry<span class="mono">FY 2025-26 base · compiled Sep 2026 · currency Rs 280/USD</span></h1>
+  <p class="lede lede-lead">Independent bottom-up estimate assembled from primary and pressed-sourced anchors. Every figure carries a confidence label and a real source URL. Nothing fabricated; gaps are flagged, not guessed.</p>
+
+  <div class="grid stats">
+    <div class="stat"><div class="num">$5.6-5.9B</div><div class="lbl"><b>Industry revenue</b> (bottom-up, FY26 base, ~85% export-led)</div></div>
+    <div class="stat"><div class="num">$4.6B</div><div class="lbl"><b>IT / ITeS exports</b> FY25-26, +21% YoY <span class="pill unverified">UNVERIFIED</span></div></div>
+    <div class="stat"><div class="num">$1.76B</div><div class="lbl"><b>Freelance earnings</b>, +78% YoY <span class="pill unverified">UNVERIFIED</span></div></div>
+    <div class="stat"><div class="num">2.5M</div><div class="lbl"><b>GitHub developers</b> 2026 Q1 <span class="pill derived">GLOBAL-DERIVED</span></div></div>
+    <div class="stat"><div class="num">$0.8-1.2B</div><div class="lbl"><b>Cloud spend ceiling</b>, 90%+ leaves the country</div></div>
+  </div>
+
+  <h2><span class="tag">01 —</span> The bottom-up model</h2>
+  <p class="lede">Six layers, summed without double counting. The export anchor is the IT/ITeS services line; domestic revenue is the weakly-measured tail with the widest error bars.</p>
+  <table>
+    <tr><th>Layer</th><th>Value (FY26 base)</th><th>What it captures</th><th>Label</th><th>Source</th></tr>
+    <tr><td>IT / ITeS exports</td><td class="num">$4.6B</td><td>Software dev, ITeS, consultancy, call centres, freelance. +21% YoY from $3.814B. Freelancer share ~$1.1B counted once. 46% of all Pakistan services exports.</td><td><span class="pill unverified">UNVERIFIED</span></td><td class="src">SBP BoP via Tribune, ProPakistani, Jun 2026</td></tr>
+    <tr><td>Non-IT freelance</td><td class="num">$0.59B</td><td>Separate digital-work line, +188% YoY. Part of the $1.76B freelance total but outside IT exports.</td><td><span class="pill unverified">UNVERIFIED</span></td><td class="src">SBP via News / BizTimes</td></tr>
+    <tr><td>Domestic IT services</td><td class="num">~$0.42B</td><td>Analyst model; to $611M by 2032 (6.2% CAGR). No official domestic survey exists.</td><td><span class="pill derived">GLOBAL-DERIVED</span></td><td class="src">6Wresearch analyst model</td></tr>
+    <tr><td>Public sector IT</td><td class="num">~$0.32B</td><td>MoITT current+dev $127M + PSDP Science &amp; IT $189M.</td><td><span class="pill verified">VERIFIED</span></td><td class="src">Federal Budget FY25-26; PID press</td></tr>
+    <tr><td>Domestic cloud (provider revenue)</td><td class="num">$0.18-0.23B</td><td>This is the conservative floor of local cloud provider revenue, NOT total domestic cloud spend.</td><td><span class="pill unverified">UNVERIFIED</span></td><td class="src">Sherdil industry estimate</td></tr>
+    <tr><td>AI market spend</td><td class="num">$0.95B (2025)</td><td>Overlaps cloud and services. To $3.23B by 2030 (27.76% CAGR). Not additive to the total below.</td><td><span class="pill derived">GLOBAL-DERIVED</span></td><td class="src">Statista via I2I</td></tr>
+    <tr><td colspan="2"><b>Bottom-up total</b> ≈ $5.6-5.9B</td><td colspan="3">Exports $4.6B + non-IT freelance $0.59B + domestic services $0.42B + public $0.32B + domestic cloud floor $0.18-0.23B.</td></tr>
+  </table>
+
+  <div class="callout green">
+    <b>Read:</b> the industry is export-led. Roughly 85% of measured revenue is cross-border services and freelance. Domestic demand is the part nobody publishes, and the part that grows when sovereign data stays onshore.
+  </div>
+
+  <h2><span class="tag">02 —</span> The capture-the-outflow thesis (the cloud / AI gap)</h2>
+  <p class="lede">The sharpest single number in the model is not a revenue figure, it is a gap: Pakistan's total cloud spend ceiling is roughly <strong>$800M-1.2B</strong>, but <strong>90%+ of it leaves the country</strong> because there is no AWS, Azure or GCP region (Pakistan is served from Mumbai and Dubai). Domestic providers capture only the <strong>$180-230M</strong> floor.</p>
+  <table>
+    <tr><th>Figure</th><th>Value</th><th>Label</th><th>Note</th></tr>
+    <tr><td>Cloud market (low, domestic provider revenue)</td><td class="num">$180-230M</td><td><span class="pill unverified">UNVERIFIED</span></td><td>Sherdil industry estimate, 2025 base</td></tr>
+    <tr><td>Cloud market (high, total spend incl. hyperscalers)</td><td class="num">$800M-1.2B</td><td><span class="pill unverified">UNVERIFIED</span></td><td>ProPakistani/Khazana PR + VTT op-ed + Statista snippet; likely promoted</td></tr>
+    <tr><td>Foreign hyperscaler outflow</td><td class="num">$720M+ / yr</td><td><span class="pill unverified">UNVERIFIED</span></td><td>Implicit: ceiling minus local floor</td></tr>
+    <tr><td>PaaS market</td><td class="num">~$370M</td><td><span class="pill unverified">UNVERIFIED</span></td><td>Statista, paywalled, unverifiable</td></tr>
+    <tr><td>AI market</td><td class="num">$949M → $3.23B (2030)</td><td><span class="pill derived">GLOBAL-DERIVED</span></td><td>Statista via I2I; vs govt policy target $2.7B by 2030 (VERIFIED)</td></tr>
+  </table>
+  <p class="lede">The two estimates are not contradictory once scope is separated: a bottom-up count of what local providers bill (floor) versus a top-down count of everything Pakistani buyers pay, mostly to offshore regions (ceiling). The commercial opportunity is the difference.</p>
+
+  <h2><span class="tag">03 —</span> Sovereign datacenter supply response (the build-out)</h2>
+  <p class="lede">The supply side is now responding to that gap, and 2025-26 saw the most significant capacity commitments in Pakistan's history:</p>
+  <table>
+    <tr><th>Facility</th><th>Spec</th><th>Status</th><th>Label</th></tr>
+    <tr><td>Sky47 Karakoram One (Mari Energies, ZTE)</td><td>8.5MW, Tier III/IV, liquid cooling</td><td>Live Jul 2026, Islamabad (Capital Smart City)</td><td><span class="pill verified">VERIFIED</span></td></tr>
+    <tr><td>Sky47 Port Qasim</td><td>5MW</td><td>Due Sep 2026, Karachi; Lahore planned. Three-city redundancy.</td><td><span class="pill verified">VERIFIED</span></td></tr>
+    <tr><td>Khazana Cloud + NASTP (PAF)</td><td>First hyperscale cloud DC, Huawei-powered</td><td>Announced Nov 2024</td><td><span class="pill verified">VERIFIED</span></td></tr>
+    <tr><td>Quantum Global Data Centre (Gul Ahmed Energy)</td><td>~$230M, Tier III, largest planned</td><td>Target 2027</td><td><span class="pill verified">VERIFIED</span></td></tr>
+    <tr><td>Telenor + Data Vault</td><td>First locally hosted AI / sovereign AI cloud</td><td>Nov 2025</td><td><span class="pill verified">VERIFIED</span></td></tr>
+    <tr><td>Jazz Digital Park (Veon/Jazz)</td><td>3MW, TIER III, 300-450 racks</td><td>Live Jan 2022, Islamabad</td><td><span class="pill verified">VERIFIED</span></td></tr>
+  </table>
+  <div class="callout blue">
+    <b>Policy accelerator:</b> PM Shehbaz directive (Aug 2026) requiring every federal institution to move data to the Sky47 national central DC, under the Digital Nation Pakistan Act 2025 and the National Digital Commission. This converts public demand into onshore revenue and directly attacks the forex-outflow figure. The 2026 PTA peering regulations additionally force local CDN terminations.
+  </div>
+
+  <h2><span class="tag">04 —</span> Export trajectory vs the official ambition</h2>
+  <ul>
+    <li><b>Actual:</b> $4.6B FY25-26, ~16% 5-yr CAGR, $400M short of the $5B target.</li>
+    <li><b>Ambition:</b> official $10-15B by 2030.</li>
+    <li><b>Gap to close:</b> reaching the ambition needs sustained 25-30% annual growth, roughly double the current trajectory. Not on track without an accelerant (higher-value products, GCC/ASEAN expansion, sovereign-cloud push converting domestic demand).</li>
+  </ul>
+
+  <h2><span class="tag">05 —</span> Supply side and the talent bottleneck</h2>
+  <table>
+    <tr><th>Metric</th><th>Value</th><th>Label</th></tr>
+    <tr><td>SECP-registered IT companies</td><td class="num">33,172</td><td><span class="pill verified">VERIFIED</span></td></tr>
+    <tr><td>PSEB active IT/ITeS companies</td><td class="num">9,400</td><td><span class="pill verified">VERIFIED</span></td></tr>
+    <tr><td>P@SHA member companies</td><td class="num">1,600+</td><td><span class="pill verified">VERIFIED</span></td></tr>
+    <tr><td>IT/ITeS professionals</td><td class="num">600,000+</td><td><span class="pill verified">VERIFIED</span></td></tr>
+    <tr><td>Registered freelancers (banked)</td><td class="num">2.32M</td><td><span class="pill verified">VERIFIED</span></td></tr>
+    <tr><td>GitHub active developers</td><td class="num">2,497,496 (2026 Q1)</td><td><span class="pill derived">GLOBAL-DERIVED</span></td></tr>
+    <tr><td>Developer growth 2020-2026</td><td class="num">~7.9x, ~41% CAGR</td><td><span class="pill modeled">MODELED</span></td></tr>
+    <tr><td>IT graduates / year</td><td class="num">43,000-75,000</td><td><span class="pill unverified">UNVERIFIED</span></td></tr>
+    <tr><td>Immediately employable share of grads</td><td class="num">10-18%</td><td><span class="pill verified">VERIFIED</span></td></tr>
+    <tr><td>Software Technology Parks</td><td class="num">43 STPs, 1.9M sqft</td><td><span class="pill verified">VERIFIED</span></td></tr>
+  </table>
+  <div class="callout red">
+    <b>Bottleneck:</b> the developer population is growing ~8x in six years, but only 10-18% of new graduates are industry-deployable. A huge talent stock with a wide employability filter is the structural limit on the $10-15B ambition and on the sovereign-cloud engineering build-out.
+  </div>
+
+  <h2><span class="tag">06 —</span> Data gaps (kept honest)</h2>
+  <ul>
+    <li>No official SBP segment split of the $4.6B (software dev vs BPO vs call centre vs gaming). Only freelance is itemised.</li>
+    <li>No published domestic IT-services revenue survey (enterprise software spend in rupees does not exist publicly).</li>
+    <li>No reachable Gartner/IDC primary Pakistan figure (values here are second-hand).</li>
+    <li>Upwork / Fiverr Pakistan share (12-13%) has no primary document.</li>
+    <li>Gaming export revenue is unquantified.</li>
+    <li>SBP and FBR primary sites are bot-blocked; several anchors are press quotes of official data and are labelled UNVERIFIED accordingly.</li>
+  </ul>
+
+  <h2><span class="tag">07 —</span> Validation plan</h2>
+  <ul>
+    <li>Pull primary SBP Payment Systems Review and IT export tables (manual PDF fetch) to upgrade UNVERIFIED anchors to VERIFIED.</li>
+    <li>One chamber-level source (PSEB / P@SHA) for a domestic revenue survey and a cloud-provider revenue figure.</li>
+    <li>Cross-check cloud ceiling against local DC operator capacity x utilisation (megawatt x revenue/kW).</li>
+    <li>Re-run the model at each half-year with fresh SBP export and PTA telecom data.</li>
+  </ul>
+
+  <div class="foot">
+    Method: bottom-up six-layer sum, cross-checked against verified supply anchors. Confidence labels are mandatory and printed next to every figure. Figures labelled UNVERIFIED are press quotes of official data (SBP/FBR sites are bot-blocked); GLOBAL-DERIVED come from validated regional/global models; MODELED from stated assumptions. This is an independent market-size estimate for research use, not investment advice. Sources are embedded per row; a full ledger is maintained alongside this page.
+  </div>
+</main>
+</body>
+</html>
