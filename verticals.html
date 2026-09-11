@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pakistan AI &amp; Cloud Opportunity by Vertical — GPU Demand Model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#0b0f17; --panel:#111827; --panel2:#0e1522; --border:#1e2a3a; --border2:#2a3b52;
+    --ink:#e6edf3; --muted:#8b98a9; --accent:#e8a33d; --green:#3fb950; --red:#f85149; --amber:#e8a33d; --cyan:#58a6ff;
+    --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  ::selection{background:rgba(232,163,61,.3)}
+  header{position:sticky;top:0;z-index:50;background:rgba(11,15,23,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  .header-inner{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .brand{font-weight:700;letter-spacing:.02em;font-size:16px}
+  .brand .dot{color:var(--accent)}
+  .brand .mono{font-family:var(--mono);font-weight:500;color:var(--muted);font-size:13px}
+  .nav{margin-left:auto;display:flex;gap:10px;font-size:13px}
+  .nav a{color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:4px 12px;border-radius:999px}
+  .nav a:hover{color:var(--ink);border-color:var(--border2)}
+  .legend{display:flex;gap:14px;font-size:12.5px;color:var(--muted);flex-wrap:wrap}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:11.5px;font-weight:600;border:1px solid;line-height:1.6;white-space:nowrap}
+  .pill.verified{color:var(--green);border-color:rgba(63,185,80,.5);background:rgba(63,185,80,.08)}
+  .pill.unverified{color:var(--amber);border-color:rgba(232,163,61,.5);background:rgba(232,163,61,.08)}
+  .pill.derived{color:var(--cyan);border-color:rgba(88,166,255,.5);background:rgba(88,166,255,.08)}
+  .pill.modeled{color:var(--red);border-color:rgba(248,81,73,.5);background:rgba(248,81,73,.08)}
+  main{max-width:1200px;margin:0 auto;padding:32px 24px 80px}
+  h1{font-size:28px;font-weight:700;letter-spacing:-.01em;line-height:1.2}
+  h1 .mono{font-family:var(--mono);font-size:14px;color:var(--muted);font-weight:500;display:block;margin-top:8px;letter-spacing:0}
+  .lede{color:var(--muted);margin:18px 0 8px;max-width:880px}
+  .lede strong{color:var(--ink)}
+  h2{font-size:20px;margin:44px 0 14px;letter-spacing:-.01em}
+  h2 .tag{font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:500}
+  h3{font-size:16px;margin:6px 0 10px}
+  .grid{display:grid;gap:14px}
+  .grid.stats{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin:22px 0}
+  .stat{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
+  .stat .num{font-size:22px;font-weight:700;color:var(--accent);font-family:var(--mono)}
+  .stat .lbl{color:var(--muted);font-size:12.5px;margin-top:4px}
+  .stat .lbl b{color:var(--ink)}
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin:14px 0}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
+  th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+  td.num{font-family:var(--mono);text-align:right;white-space:nowrap}
+  tr:hover td{background:var(--panel2)}
+  .src{color:var(--muted);font-size:12px;word-break:break-all}
+  a{color:var(--cyan);text-decoration:none}
+  a:hover{text-decoration:underline}
+  ul{margin:8px 0 8px 20px}
+  li{margin:5px 0}
+  .vc{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin:16px 0}
+  .vc .head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--border);padding-bottom:10px;margin-bottom:12px}
+  .vc .head h3{font-size:18px}
+  .vc .opp{margin-left:auto;font-family:var(--mono);font-size:15px;color:var(--accent)}
+  .vmeta{display:flex;gap:24px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-bottom:10px}
+  .vmeta b{color:var(--ink)}
+  .callout{border-left:3px solid var(--accent);background:var(--panel2);padding:14px 18px;border-radius:6px;margin:16px 0}
+  .callout.blue{border-left-color:var(--cyan)}
+  .callout.red{border-left-color:var(--red)}
+  .callout.green{border-left-color:var(--green)}
+  .foot{color:var(--muted);font-size:12.5px;border-top:1px solid var(--border);margin-top:56px;padding-top:18px}
+  @media(max-width:700px){h1{font-size:22px}.legend{display:none}.nav{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">Pakistan IT <span class="dot">Market</span> Size <span class="mono">· vertical AI/cloud layer</span></div>
+    <div class="nav"><a href="index.html">Market size</a><a href="verticals.html">Vertical AI/Cloud</a></div>
+    <div class="legend">
+      <span><span class="pill verified">VERIFIED</span> primary</span>
+      <span><span class="pill unverified">UNVERIFIED</span> press</span>
+      <span><span class="pill derived">GLOBAL-DERIVED</span> model</span>
+      <span><span class="pill modeled">MODELED</span> assumption</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <h1>AI &amp; Cloud Opportunity by Vertical<span class="mono">Pakistan · three-layer model: IT baseline → AI use cases → GPU compute demand · FY2025-26 base · Rs 280/USD</span></h1>
+  <p class="lede lede-lead">For each vertical: what the industry pays today to run the business (IT wallet), which AI use cases it can and will deploy (with evidence), and how much GPU compute those use cases need to run internally and to serve end customers. The GPU numbers are workload-derived estimates, transparently assumed and labelled MODELED, never presented as fact.</p>
+
+  <div class="grid stats">
+    <div class="stat"><div class="num">~300-1,100</div><div class="lbl"><b>GPU-equivalents</b> (H100-class) AI inference demand at mature adoption, all verticals</div></div>
+    <div class="stat"><div class="num">~4-9 MW</div><div class="lbl"><b>Sovereign DC headroom</b> implied for onshore AI compute</div></div>
+    <div class="stat"><div class="num">$185-640M</div><div class="lbl"><b>Cloud+AI services opportunity</b> (annual, mature phase)</div></div>
+    <div class="stat"><div class="num">$700-800M/yr</div><div class="lbl"><b>Current forex outflow</b> to offshore cloud/AI, the addressable prize</div></div>
+  </div>
+
+  <div class="callout blue">
+    <b>Thesis this page tests:</b> the AI workloads Pakistani enterprises will actually run are mostly inference, not research training. Inference on a few hundred H100-class GPUs is within the reach of the sovereign DC build-out already underway (Sky47 13.5MW, Jazz 3MW, ~23.5MW national IT load). The constraint is not raw demand, it is converting offshore-inflow spend into onshore compute + services before the hyperscalers expand in.
+  </div>
+
+  <h2><span class="tag">01 —</span> Financial institutions</h2>
+  <div class="vc">
+    <div class="head"><h3>Banks · insurers · fintech</h3><div class="opp">$50-150M/yr services opp</div></div>
+    <div class="vmeta"><span>IT wallet <b>$0.8-1.2B</b></span><span>GPU demand <b>100-400</b></span><span>Census: 33 banks, 5 Islamic, 11 MFBs, 42 insurers, 6 EMIs, ~450 fintech</span></div>
+    <p class="lede">Sector profit Rs671B CY25; banking IT spend runs 8-12% of revenue (McKinsey proxy) giving a Rs217-325B/yr IT wallet, MODELED on SBP-licensed institutions. SBP's formal Cloud Outsourcing Framework (BPRD C1/2023) is a live enabler for onshore cloud.</p>
+    <table>
+      <tr><th>Use case (evidence)</th><th>Compute flavour</th></tr>
+      <tr><td>Fraud detection / device fingerprinting: 1LINK + TrustDecision, 9 banks live, 36 on the fraud-risk system</td><td>Real-time inference, high volume</td></tr>
+      <tr><td>Wallet AI risk scoring: Easypaisa live since 2024</td><td>Inference on txns</td></tr>
+      <tr><td>Chatbots / IVA: HBL Konnect, UBL VA, Allied Bank (call traffic -40%), Faysal, Meezan</td><td>LLM inference</td></tr>
+      <tr><td>AML/KYC + credit scoring on non-traditional data</td><td>Embeddings + inference</td></tr>
+    </table>
+    <p class="lede"><b>GPU model (MODELED):</b> at full rollout a banking AI stack moves on the order of ~2.5B LLM-token-equivalents/day (chat, KYC OCR, fraud narrative, credit summaries) plus embedding indexing. One H100 at FP8 serves ~300 tok/s (8B class), ~15M tokens/GPU/day at 60% utilisation. That lands at ~150-200 working GPUs, and with training, fine-tune and redundancy the defensible planning band is <b>100-400 H100-equivalents</b>.</p>
+  </div>
+
+  <h2><span class="tag">02 —</span> FMCG / consumer goods</h2>
+  <div class="vc">
+    <div class="head"><h3>Unilever · Nestle · Engro · Colgate · local majors</h3><div class="opp">$10-40M/yr services opp</div></div>
+    <div class="vmeta"><span>IT wallet <b>$90-140M</b> (top-10)</span><span>GPU demand <b>20-80</b></span><span>Top-10 revenue ~Rs845B; sector US$18-25B</span></div>
+    <p class="lede">IT spend 2-4% of revenue (GLOBAL-DERIVED). Evidence of live AI appetite: Unilever Pakistan's no-touch AI/ML forecast on Kinaxis with 70,000+ retailers on B2B and a ~70TB/yr Azure data lake; Nestle AI forecasting lifting top-line 2-4%; digital route-to-market (Centegy DCODE); Engro agri AI.</p>
+    <table>
+      <tr><th>Use case (evidence)</th><th>Compute flavour</th></tr>
+      <tr><td>Demand forecasting (Nestle, Unilever, Kinaxis)</td><td>CPU/GPU-mixed ML</td></tr>
+      <tr><td>Route-to-market, B2B ordering, promo optimisation</td><td>Inference + embeddings</td></tr>
+      <tr><td>Computer-vision retail/distribution audit</td><td>Edge inference</td></tr>
+      <tr><td>Consumer analytics, tele-sales chatbots</td><td>LLM inference</td></tr>
+    </table>
+    <p class="lede"><b>GPU model (MODELED):</b> forecasting is not GPU-heavy; the meaningful draw is embeddings + LLM channel support + early vision. Planning band <b>20-80 H100-equivalents</b>.</p>
+  </div>
+
+  <h2><span class="tag">03 —</span> Manufacturing / industrial</h2>
+  <div class="vc">
+    <div class="head"><h3>Textile · cement · auto · chemicals</h3><div class="opp">$40-150M/yr services opp</div></div>
+    <div class="vmeta"><span>IT+automation wallet <b>$0.9-2.0B</b></span><span>GPU demand <b>50-200</b></span><span>42,578 large-scale establishments; mfg ~13% of GDP</span></div>
+    <p class="lede">Textile is ~60% of exports and the flagship AI buyer: computer-vision fabric/garment defect detection runs ~99% accuracy with 6-12 month Pakistaned payback; predictive maintenance cuts downtime up to 40%. Cement (38.5M tonnes, 9M-FY26) is energy-intensive and capex-rich.</p>
+    <table>
+      <tr><th>Use case (evidence)</th><th>Compute flavour</th></tr>
+      <tr><td>CV quality / defect inspection (textile)</td><td>GPU-heavy edge inference + episodic training</td></tr>
+      <tr><td>Predictive maintenance (sensors)</td><td>IIoT signal inference</td></tr>
+      <tr><td>Production planning, energy optimisation, ERP</td><td>CPU/GPU-mixed</td></tr>
+    </table>
+    <p class="lede"><b>GPU model (MODELED):</b> vision inspection is the primary GPU driver: edge boxes per line plus central training clusters. Planning band <b>50-200 H100-equivalents</b>. IIoT raw ingestion is moderate CPU/storage, low-GPU.</p>
+  </div>
+
+  <h2><span class="tag">04 —</span> Healthcare</h2>
+  <div class="vc">
+    <div class="head"><h3>Hospitals · diagnostics · pharma · health-tech</h3><div class="opp">$15-60M/yr services opp</div></div>
+    <div class="vmeta"><span>Health IT wallet <b>$200-500M</b></span><span>GPU demand <b>30-120</b></span><span>1,934 hospitals, 173,971 beds, 759 pharma units, 572 health-tech startups</span></div>
+    <p class="lede">The most evidence-backed imaging vertical in Pakistan: the National TB Program's CAD (CAD4TB) screened 1.21M people across 11,327 camps (2017-21) and national scale-up implies ~27M CXR over four years; AI chest-X-ray triage cut costs 19-37% in Karachi; a surveillance RCT raised detection 32%. Patient-data sensitivity mandates onshore inference.</p>
+    <table>
+      <tr><th>Use case (evidence)</th><th>Compute flavour</th></tr>
+      <tr><td>Medical imaging inference (CXR, mammography, derm)</td><td>GPU image inference, high volume</td></tr>
+      <tr><td>EHR / hospital management, telemedicine (Sehat Kahani)</td><td>LLM + document</td></tr>
+      <tr><td>Disease surveillance, pharma</td><td>Inference + modelling</td></tr>
+    </table>
+    <p class="lede"><b>GPU model (MODELED):</b> ~27M CXRs over 4 years is ~18,500 images/day; image inference is cheap per image (a few tens of GPU-seconds), so a modest cluster handles it. Planning band <b>30-120 H100-equivalents</b> including localization training.</p>
+  </div>
+
+  <h2><span class="tag">05 —</span> Public sector / government</h2>
+  <div class="vc">
+    <div class="head"><h3>Federal + provincial · NADRA · FBR · BISP</h3><div class="opp">$40-120M/yr services opp</div></div>
+    <div class="vmeta"><span>IT wallet <b>$200-500M</b></span><span>GPU demand <b>50-150</b></span><span>MoITT $127M + PSDP Science&amp;IT $189M; Punjab digital $249M; Punjab GPU cloud Rs7.4B</span></div>
+    <p class="lede">The most policy-directed vertical. Digital Nation Act 2025, National AI Policy 2025 (sovereign-cloud preference), and the Aug 2026 PM directive moving all federal data to Sky47. Tangible AI anchors: NADRA facial proof-of-life for 3M+ pensioners, FBR faceless AI tax audit, BISP 10M digital wallets, an indigenous AI trade platform tender. Punjab has already committed Rs7.4B (~$26M) to a sovereign GPU cloud, a hard floor for this vertical's compute demand.</p>
+    <table>
+      <tr><th>Use case (evidence)</th><th>Compute flavour</th></tr>
+      <tr><td>National identity / facial-iris verification (NADRA)</td><td>High-volume biometric inference</td></tr>
+      <tr><td>Tax risk scoring, faceless audit (FBR IA)</td><td>Inference + document AI</td></tr>
+      <tr><td>Social-protection fraud, OCR across ministries</td><td>Inference</td></tr>
+    </table>
+    <p class="lede"><b>GPU model (MODELED):</b> the Rs7.4B Punjab GPU cloud is the direct signal; federal identity scale adds more. Planning band <b>50-150 H100-equivalents</b>.</p>
+  </div>
+
+  <h2><span class="tag">06 —</span> Defence / security</h2>
+  <div class="vc">
+    <div class="head"><h3>Surveillance · cyber · identity · logistics</h3><div class="opp">$30-120M/yr services opp</div></div>
+    <div class="vmeta"><span>IT/comms wallet <b>$0.3-0.8B</b> (services/software share)</span><span>GPU demand <b>50-200</b> (INFERRED)</span><span>Defence budget Rs1.9-2.2T ~3% GDP; spend classified</span></div>
+    <p class="lede"><strong>Public anchors only.</strong> Border fencing/surveillance programs exist; NADRA identity underpins vetting; NUST/CASE run robotics and UAV research. Defence AI specifics are classified. The accessible opportunity is software and services around existing surveillance, identity and cyber infrastructure, plus air-gapped edge inference, not hardware procurement. The entire compute section is INFERRED/MODELED with a wide uncertainty band.</p>
+    <table>
+      <tr><th>Use case</th><th>Status</th></tr>
+      <tr><td>Computer-vision surveillance (border, coastal)</td><td>PUBLIC (fencing exists) / AI stack INFERRED</td></tr>
+      <tr><td>SIGINT, cyber defence, logistics, intelligence triage</td><td>INFERRED</td></tr>
+      <tr><td>Autonomous / UGV and secure comms</td><td>INFERRED</td></tr>
+    </table>
+    <p class="lede"><b>GPU model (INFERRED):</b> edge inference at nodes (Jetson/T4-class) is more probable than large central GPU clusters given power and air-gapping. Planning band <b>50-200 H100-equivalents</b> as a directional ceiling, not a fact.</p>
+  </div>
+
+  <h2><span class="tag">07 —</span> National GPU demand and the DC implication</h2>
+  <table>
+    <tr><th>Vertical</th><th class="num">GPU range</th><th class="num">Services opp</th><th>Dominant driver</th></tr>
+    <tr><td>Financial institutions</td><td class="num">100-400</td><td class="num">$50-150M</td><td>Fraud, AML, chatbots (inference)</td></tr>
+    <tr><td>Manufacturing</td><td class="num">50-200</td><td class="num">$40-150M</td><td>Vision QC (GPU edge)</td></tr>
+    <tr><td>Public sector</td><td class="num">50-150</td><td class="num">$40-120M</td><td>Identity, tax AI (sovereign)</td></tr>
+    <tr><td>Defence</td><td class="num">50-200</td><td class="num">$30-120M</td><td>Surveillance (inferred)</td></tr>
+    <tr><td>Healthcare</td><td class="num">30-120</td><td class="num">$15-60M</td><td>Imaging inference</td></tr>
+    <tr><td>FMCG</td><td class="num">20-80</td><td class="num">$10-40M</td><td>Forecast, channel AI</td></tr>
+    <tr><td><b>Total</b></td><td class="num"><b>~300-1,150</b></td><td class="num"><b>$185-640M</b></td><td></td></tr>
+  </table>
+  <div class="callout green">
+    <b>Capacity read (MODELED):</b> ~1,150 H100-equivalents at ~2kW/system implies roughly 2.5MW of AI IT load; with training headroom and PUE 1.5 that is ~4-9MW of sovereign DC requirement. Against the ~23.5MW national DC IT load and the Sky47 buildout (8.5 + 5MW), onshore AI inference is absorbable today and is the anchor use case that justifies near-term sovereign GPU capacity. The services and compute prize sits inside the $700-800M/yr offshore outflow.
+  </div>
+
+  <h2><span class="tag">08 —</span> Cost reality for running inference in Pakistan</h2>
+  <ul>
+    <li><b>Power (dominant cost):</b> Rs33-46/kWh (industrial to commercial, ~$0.12-0.16). 1MW of IT load at PUE 1.5 draws ~13GWh/yr, ~$1.6-2.0M/yr before generator fuel.</li>
+    <li><b>Hardware:</b> advanced NVIDIA boards need a US export license (Tier 2, not banned); landed $40-60k/GPU. Data Vault already secured 3,000+ H100/H200. Local rental H100 ~$6/hr vs $2.60-3 for neocloud, $10 for OCI.</li>
+    <li><b>No hyperscaler region:</b> served from UAE (&lt;50ms) and India; the $700-800M/yr outflow funds that gap.</li>
+    <li><b>Two-sided FX squeeze:</b> local GPUaaS pays GPU capex in USD, bills rentals in PKR, pays power in PKR. Utilisation is everything: a domestic operator must beat imported token APIs ($0.10-0.32 per M for Llama 70B, $0.22/$0.66 for DeepSeek V4-flash).</li>
+  </ul>
+
+  <div class="foot">
+    Method: per-vertical three-layer model (IT baseline from official/global-derived anchors, AI use cases from cited evidence, GPU demand from transparent workload assumptions). GPU counts and opportunity sizes are ranges labelled MODELED, not point estimates, and should be treated as directional multipliers of spend that is currently offshore. Defence figures are PUBLIC-anchor only with INFERRED compute. Full per-number sourcing on the market-size page. Independent research, not investment advice. Confidence labels: VERIFIED (primary) / UNVERIFIED (press) / GLOBAL-DERIVED (applied model) / MODELED (assumption).
+  </div>
+</main>
+</body>
+</html>
